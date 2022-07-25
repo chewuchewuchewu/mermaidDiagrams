@@ -21,8 +21,9 @@ erDiagram
     
 %% put Ad in mid of Buyer & seller in the final layout
     Buyer }|--|{ AD: "views,rates,watches,complaints"
+    Buyer ||--|o RegisteredUser : "can be"
     Buyer }|--|{ Platform: browse
-    Buyer ||--|o RegisteredUser : can be 
+    
     
     AD }|--|| Category : belong-to
     AD }|--|| Location : belong-to
