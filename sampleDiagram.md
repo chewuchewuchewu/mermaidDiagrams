@@ -21,7 +21,7 @@ erDiagram
     
 %% put Ad in mid of Buyer & seller in the final layout
     Buyer }|--|{ AD: "views,rates,watches,complaints"
-    Buyer ||--|o RegisteredUser : "can be"
+%% remove this line as it's only confusing the overall diagram    Buyer ||--|o RegisteredUser : "can be"
     Buyer }|--|{ Platform: browse
     
     
