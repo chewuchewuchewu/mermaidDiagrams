@@ -11,17 +11,17 @@ erDiagram
 %% DW_CLSFD_{meta,Lvl2,Lvl3,Lvl4}_Geo_Lkp
 
     Dealer }|--|{ ListingProxy : adopts
-    Dealer ||--|| Seller : is 
+    Dealer ||--|| RegisteredUser : is 
     
-    PrivateSeller ||--|| Seller : is 
+    PrivateSeller ||--|| RegisteredUser : is 
     PrivateSeller }|--|{ Platform: logon
     
-    Seller ||--|| RegisteredUser :is
+    RegisteredUser ||--|| Seller :as
     Seller ||--|{ AD : posts
     
 %% put Ad in mid of Buyer & seller in the final layout
     Buyer }|--|{ AD: "views,rates,watches,complaints"
-%% remove this line as it's only confusing the overall diagram    Buyer ||--|o RegisteredUser : "can be"
+    RegisteredUser o|--||Buyer : "can be"
     Buyer }|--|{ Platform: browse
     
     
@@ -50,13 +50,13 @@ erDiagram
         decimal location FK "referenceID of location hierarchy"
         string adTitle
         decimal adPrice
-        string adType 
-        string status
+        string adType "ask for, or for sale"
+        string status "live, expire, deleted, suspended/paused"
         date creationDate
         string postPlatform FK "referenceID of platform when private seller posts ad"
         string postProxy FK "referenceID of postProxy when Dealer posts ad"
-        array statusChangeHistory
-        array dynamicAdAttributes
+        array statusChangeHistory "log upon ad status changes"
+        map dynamicAdAttributes
         array buyerStatistics "statistics of buyer behaviors, breaking down by types, platforms, and calendar dates"
     }
     Category{
