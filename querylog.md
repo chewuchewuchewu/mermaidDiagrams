@@ -19,4 +19,9 @@ erDiagram
     enum queryTypes "describe,insert,show,select,alter,drop"
 }
 
+    DataBricksCluster{
+    Decimal capacity
+    Decimal accumulatedCost
+    string  clusterName
+    }
 ```
