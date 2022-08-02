@@ -1,7 +1,7 @@
 ```mermaid
 graph TD
-    dw_adm(BatchRoles<br>dw_adm)-->|ReadWrite|Prod
-    dw_adm-->|impersonates|archiveBatchRole([Archive Batch Role dw_adm<br>replace with<br>batchAccount-TBD])
+    dw_adm(Batch IAM Roles<br>dw_adm)-->|ReadWrite|Prod
+    dw_adm-->|impersonates|archiveBatchRole([Archive IAM Role<br>replace with<br>batchIAM-TBD])
     subgraph regularETLFlow
         Prod("S3Storage<br>s3://prodBucket/data/clsfd/")-->|read/write|prodTables(prodDB<br>clsfd_tables)
     end
